@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ .Title }}</title>
+    {{ $style := resources.Get "css/style.css" }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+  </head>
+  <body style="margin: 0; font-family: system-ui, sans-serif; background-color: #f3f4f6;">
+    <div style="max-width: 1024px; margin: auto; padding: 1rem;">
+      {{ partial "header.html" . }}
+      <main class="content" style="background: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-top: 2rem;">
+        {{ block "main" . }}{{ end }}
+      </main>
+    </div>
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="/js/search.js"></script>
+  </body>
+</html>
